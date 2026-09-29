@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   templates.hpp                                      :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:14:20 by cycolonn          #+#    #+#             */
-/*   Updated: 2026/09/29 15:08:17 by cycolonn         ###   ########.fr       */
+/*   Created: 2026/09/29 15:27:54 by cycolonn          #+#    #+#             */
+/*   Updated: 2026/09/29 16:10:33 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  TEMPLATES_HPP
-#define  TEMPLATES_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
-template<typename T > T max(const T& a, const T& b)
+#include <cstddef>
+
+template<typename T, typename F> void iter( T *array, size_t size, F function)
 {
-    return (a > b) ? a : b;
-}
-
-
-template<typename T > T min(const T& a, const T& b)
-{
-    return (a < b) ? a : b;
-}
-
-template<typename T > void swap(T& a, T& b)
-{
-    T tmp = a;
-    a = b;
-    b = tmp;
+    if (array == NULL || function == NULL)
+        return ;
+    for(size_t i = 0; i < size; i++)
+        function(array[i]);
 }
 
 #endif
